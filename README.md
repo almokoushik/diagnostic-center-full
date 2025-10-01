@@ -1,4 +1,4 @@
-# Diagnostic Center 
+# Diagnostic Center and Appointment Platform
 
 A full-stack diagnostic/appointments platform with:
 - User-facing frontend (Vite + React)
