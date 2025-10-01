@@ -3,7 +3,17 @@ import mongoose from "mongoose";
 const connectDB = async () => {
 
     mongoose.connection.on('connected', () => console.log("Database Connected"))
-    await mongoose.connect(`${process.env.MONGODB_URI}/prescripto`)
+
+    const baseUri = process.env.MONGODB_URI
+    if (!baseUri) {
+        throw new Error("MONGODB_URI is not set")
+    }
+
+    // If URI already includes a database path, use as-is; otherwise append default db name
+    const hasDbPath = /\/[^/?]+(\?|$)/.test(new URL(baseUri).pathname)
+    const uriToUse = hasDbPath ? baseUri : `${baseUri.replace(/\/$/, '')}/prescripto`
+
+    await mongoose.connect(uriToUse)
 
 }
 

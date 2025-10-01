@@ -12,7 +12,7 @@ import MyProfile from './pages/MyProfile'
 import Footer from './components/Footer'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Verify from './pages/Verify'
+// Verify page removed
 
 const App = () => {
   return (
@@ -29,7 +29,7 @@ const App = () => {
         <Route path='/appointment/:docId' element={<Appointment />} />
         <Route path='/my-appointments' element={<MyAppointments />} />
         <Route path='/my-profile' element={<MyProfile />} />
-        <Route path='/verify' element={<Verify />} />
+        { /* /verify route removed */ }
       </Routes>
       <Footer />
     </div>
