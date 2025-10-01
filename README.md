@@ -1,4 +1,4 @@
-# Diagnostic Center
+# Diagnostic Center 
 
 A full-stack diagnostic/appointments platform with:
 - User-facing frontend (Vite + React)
@@ -22,11 +22,6 @@ Payments (Stripe/Razorpay) have been removed. Cross-navigation between Admin and
 - Backend: Node.js, Express, Mongoose, Cloudinary
 - Database: MongoDB (Atlas or self-hosted)
 - Hosting: Vercel (3 projects from the monorepo)
-
-## Prerequisites
-- Node.js 18+
-- MongoDB connection string
-- Cloudinary account credentials
 
 ## Local Development
 
@@ -70,10 +65,6 @@ CLOUDINARY_SECRET_KEY=your_cloudinary_secret
 CURRENCY=USD
 ```
 
-Notes:
-- `MONGODB_URI` may include a database name (e.g., `/prescripto`). If not provided, the app appends `/prescripto` automatically.
-- Payments are removed; Stripe/Razorpay keys are not needed.
-
 ### Frontend (User) – `.env` in `frontend/`
 ```
 VITE_BACKEND_URL=https://your-backend.vercel.app
@@ -86,9 +77,6 @@ VITE_BACKEND_URL=https://your-backend.vercel.app
 VITE_FRONTEND_URL=https://your-frontend.vercel.app
 VITE_CURRENCY=USD
 ```
-
-## Vercel Deployment (Monorepo)
-Create three Vercel projects from this repo. Pick one backend deployment URL and reference it in both frontends.
 
 ### Backend Project
 - Root directory: `backend`
@@ -132,13 +120,6 @@ The backend includes:
 - Frontend navbar shows an “Admin” button when `VITE_ADMIN_URL` is set.
 - Admin navbar shows a “User” button when `VITE_FRONTEND_URL` is set.
 
-## Common Issues
-- 500 Function errors on Vercel:
-  - Check Vercel → Project → Deployments → Functions → View Logs. Usually missing env vars.
-- CORS errors:
-  - The backend uses `cors()` with defaults. Ensure requests are made to the correct `VITE_BACKEND_URL`.
-- VITE_ env vars not taking effect:
-  - You must trigger a fresh build (not reusing existing build) after changing environment variables.
 
 ## Scripts
 Backend (`backend/package.json`):
@@ -165,6 +146,3 @@ Base URL: `VITE_BACKEND_URL`
 - Admin endpoints under `/api/admin/...`
 - Doctor endpoints under `/api/doctor/...`
 
-## Notes
-- Image uploads are sent to Cloudinary. In serverless environments (Vercel), temporary files use the platform’s temp directory.
-- Payments have been removed. UI screens related to online payments and backend routes for Stripe/Razorpay are no longer present.
