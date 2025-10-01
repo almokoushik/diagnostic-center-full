@@ -168,6 +168,3 @@ Base URL: `VITE_BACKEND_URL`
 ## Notes
 - Image uploads are sent to Cloudinary. In serverless environments (Vercel), temporary files use the platform’s temp directory.
 - Payments have been removed. UI screens related to online payments and backend routes for Stripe/Razorpay are no longer present.
-
-## License
-MIT (or your preferred license)
