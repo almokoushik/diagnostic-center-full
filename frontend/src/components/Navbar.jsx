@@ -36,6 +36,11 @@ const Navbar = () => {
           <li className='py-1'>CONTACT</li>
           <hr className='border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden' />
         </NavLink>
+        {import.meta.env.VITE_ADMIN_URL && (
+          <li className='py-1'>
+            <a href={import.meta.env.VITE_ADMIN_URL} target='_blank' rel='noreferrer' className='bg-primary text-white px-4 py-2 rounded-full'>Admin</a>
+          </li>
+        )}
       </ul>
 
       <div className='flex items-center gap-4 '>
@@ -67,6 +72,9 @@ const Navbar = () => {
             <NavLink onClick={() => setShowMenu(false)} to='/doctors' ><p className='px-4 py-2 rounded full inline-block'>ALL DOCTORS</p></NavLink>
             <NavLink onClick={() => setShowMenu(false)} to='/about' ><p className='px-4 py-2 rounded full inline-block'>ABOUT</p></NavLink>
             <NavLink onClick={() => setShowMenu(false)} to='/contact' ><p className='px-4 py-2 rounded full inline-block'>CONTACT</p></NavLink>
+            {import.meta.env.VITE_ADMIN_URL && (
+              <a onClick={() => setShowMenu(false)} href={import.meta.env.VITE_ADMIN_URL} target='_blank' rel='noreferrer' className='px-4 py-2 rounded-full inline-block bg-primary text-white'>Admin</a>
+            )}
           </ul>
         </div>
       </div>

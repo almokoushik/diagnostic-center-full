@@ -25,7 +25,12 @@ const Navbar = () => {
         <img onClick={() => navigate('/')} className='w-36 sm:w-40 cursor-pointer' src={assets.admin_logo} alt="" />
         <p className='border px-2.5 py-0.5 rounded-full border-gray-500 text-gray-600'>{aToken ? 'Admin' : 'Doctor'}</p>
       </div>
-      <button onClick={() => logout()} className='bg-primary text-white text-sm px-10 py-2 rounded-full'>Logout</button>
+      <div className='flex items-center gap-3'>
+        {import.meta.env.VITE_FRONTEND_URL && (
+          <a href={import.meta.env.VITE_FRONTEND_URL} target='_blank' rel='noreferrer' className='bg-primary text-white text-sm px-6 py-2 rounded-full'>User</a>
+        )}
+        <button onClick={() => logout()} className='bg-primary text-white text-sm px-10 py-2 rounded-full'>Logout</button>
+      </div>
     </div>
   )
 }
